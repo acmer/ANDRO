@@ -1,7 +1,7 @@
 {
-  "name": "ANDRO",
+  "name": "INFERNO",
   "version": "1.0.0",
-  "description": "ANDRO - Remote Android Managment Suite",
+  "description": "INFERNO - Remote Android Managment Suite",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +9,7 @@
     "dev": "nodemon index.js --watch includes --watch assets",
     "install-dev": "npm install && npm install --save-dev nodemon debug"
   },
-  "author": "AryanVBWs",
+  "author": "EV1LC0RP",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",

@@ -1,6 +1,6 @@
 /* 
-*   ANDRO
-*   By AryanVBW
+*   INFERNO
+*   By Acmer
 */
 
 const
@@ -24,7 +24,7 @@ global.apkBuilder = apkBuilder;
 
 // Development mode configuration
 if (process.env.NODE_ENV === 'development') {
-    debug.server('Running in development mode');
+    debug.server('Corriendo en modo desarrollo | pruebas');
     app.disable('view cache');
 }
 
@@ -36,16 +36,16 @@ app.use(require('./includes/expressRoutes'));
 
 // Create HTTP server
 const server = app.listen(CONST.web_port, () => {
-    debug.server(`Web server listening on port ${CONST.web_port}`);
+    debug.server('Web server listening on port ${CONST.web_port}');
 });
 
 // Initialize Socket.IO
 const client_io = new Server(server);
-debug.server(`Socket.IO attached to web server`);
+debug.server('Socket.IO attached to web server');
 
 client_io.engine.pingInterval = 30000;
 client_io.on('connection', (socket) => {
-    socket.emit('welcome');
+    socket.emit('Bienvenido');
     let clientParams = socket.handshake.query;
     let clientAddress = socket.request.connection;
 
@@ -53,7 +53,7 @@ client_io.on('connection', (socket) => {
     let clientGeo = geoip.lookup(clientIP);
     if (!clientGeo) clientGeo = {}
 
-    debug.socket(`New client connected: ${clientParams.id} from ${clientIP}`);
+    debug.socket(`Nuevo cliente conectado: ${clientParams.id} desde ${clientIP}`);
 
     clientManager.clientConnect(socket, clientParams.id, {
         clientIP,

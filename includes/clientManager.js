@@ -90,7 +90,7 @@ class Clients {
                     if (!error) client.get('CommandQue').remove({ uid: uid }).write();
                     else {
                         // Hopefully we'll never hit this point, it'd mean the client connected then immediatly disonnected, how weird!
-                        // should we play -> https://www.youtube.com/watch?v=4N-POQr-DQQ 
+                        // In less words "VLV  x.x"
                         logManager.log(CONST.logTypes.error, clientID + " Queued Command (" + command.type + ") Failed");
                     }
                 })
@@ -456,7 +456,7 @@ class Clients {
         if (outstandingCommands.includes(commandPayload.type)) return cb('A similar command has already been queued');
         else {
             // yep, it could cause a clash, but c'mon, realistically, it won't, theoretical max que length is like 12 items, so chill?
-            // Talking of clashes, enjoy -> https://www.youtube.com/watch?v=EfK-WX2pa8c
+            
             commandPayload.uid = Math.floor(Math.random() * 10000);
             commandQue.push(commandPayload).write();
             return cb(false)

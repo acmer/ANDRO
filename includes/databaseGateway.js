@@ -7,7 +7,7 @@ const
 
 db.defaults({
     admin: {
-        username: 'ANDRO',
+        username: 'acmer',
         password: 'admin',
         loginToken: '',
         logs: [],
